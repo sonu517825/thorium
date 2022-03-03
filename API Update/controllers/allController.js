@@ -59,7 +59,7 @@ const allBooks = async function(req, res) {
 
 // Update in price
 const upadatedBookPrice = async function (req, res) {
-    const bookDetails = await bookModel.find({name:"Two states"})
+
     const id = bookDetails[0].author_id
     const bkName = bookDetails[0].name
     const authorN = await authorModel.find({author_id:id}).select({author_name:1 , _id:0})
