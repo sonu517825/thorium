@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { head } = require('../routes/route')
 const objectid=mongoose.Schema.Types.ObjectId
 
 const bookSchema = new mongoose.Schema({
@@ -6,9 +7,14 @@ const bookSchema = new mongoose.Schema({
 	author:{
         type:objectid,
         required:true,
-      ref: "newAuthor"
+     ref: "newAuthor"
+
     },
-	price:Number,
+	price:
+  {
+  type:Number,
+  ref:"newAuthor"
+  },
 	ratings:Number,
 	publisher: {
         type:objectid,
@@ -19,5 +25,9 @@ const bookSchema = new mongoose.Schema({
 {timestamps:true})
 
 module.exports = mongoose.model('newBook',bookSchema)
+
+
+
+
 
 

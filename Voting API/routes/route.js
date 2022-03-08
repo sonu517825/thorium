@@ -56,7 +56,7 @@ router.post("/query", function (req, res)
             elig_persons.push(persons[i])
         }
     }
-   
+   ;
     // not eligible persons
     
     let not_elig_persons=[]
@@ -71,10 +71,10 @@ router.post("/query", function (req, res)
     // result
 
     //res.send(not_elig_persons)
-    //res.send(elig_persons)
+    res.send(elig_persons)
 
-    console.log(not_elig_persons)
-    console.log(elig_persons)
+   // console.log(not_elig_persons)
+ //   console.log(elig_persons)
 
 });
 

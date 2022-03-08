@@ -15,12 +15,13 @@ mongoose.connect('mongodb+srv://sonu517825:IfIDmIFSv60yUaOw@booklistfilter-1.bty
 .then( () => console.log('connected'))
 .catch(err => console.log(err))
 
-
+//app.use(globalmiddlewere)
 app.use('/', route);
 
 app.listen(process.env.PORT || 3000, function() {
     console.log('Express app running on port ' + (process.env.PORT || 3000))
 });
+//module.exports=globalmiddlewere
 
 
 
