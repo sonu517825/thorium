@@ -4,34 +4,11 @@ const middlewear= require("../MiddleWear/middlewear.js")
 //const bookModel = require('../models/bookModel')
 //const publisherModel = require('../models/publisher')
 
-/*
-
-
-let middlewear1 = function(req, res, next){
-
-
-    let data = req.headers
-    console.log(data)
-  
-  
-   if(data.hasOwnProperty("isfreeappuser") === false){
-       res.send({error : "the request is missing a mandatory header" })
-   }else {
-       next()
-   }
 
 
 
 
-
-
-
-    // req.headers.isFreeAppUser = 'isFreeAppUser'
-    // if(req.headers.isFreeAppUser=='isFreeAppUser')
-    // next()
-    // else
-    // res.send("Hadder is not present")
-}
+/* This is another method here we send hadder waya code in postman body
 
 
 // API 3
@@ -114,9 +91,7 @@ let middlewear2= async function(req, res, next){
     const SavedOrder = await OrderPurchageModel.create(order)
     res.send({"Order Successfull ":SavedOrder})
 
-}
-
-*/
+}*/
 //module.exports.middlewear1=middlewear1
 //module.exports.middlewear2=middlewear2
 
@@ -125,6 +100,9 @@ let middlewear2= async function(req, res, next){
 
 
 
+
+
+// in this method we send hadder waya postman body
 
 
 const middlewear1 = function (req, res, next){
