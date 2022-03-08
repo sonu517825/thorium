@@ -1,31 +1,38 @@
 const express = require('express');
 const router = express.Router();
-const productController= require("../controllers/productController")
-const userDetailsController= require("../controllers/UserDetailsContollers")
-const orderDetailsController= require("../controllers/orderDetailsController.js")
-const middlewear=require("../MiddleWear/middlewear.js")
+const userController= require("../controllers/userController")
+const Validation=require("../MiddleWear/auth.js")
 
-
-router.get("/test-me", /*middlewear.middlewear1,*/function (req, res) {
+router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
 })
 
 
-// product route
-router.post("/createproductDetails", productController.createproductDetails)
-router.get("/getproductDetails", productController.getproductDetails)
-
-    
-
-// user route
-router.post("/createuserdetails", middlewear.middlewear1 , userDetailsController.createuserDetails)
-router.get("/getuserdetails" ,userDetailsController.getuserDetails)
+// create user and show user
+router.post("/users", userController.createUser  )
+router.get("/showuser",userController.showuser)
 
 
-// order route
-router.post("/creatorderdetails", middlewear.middlewear1 , orderDetailsController.createorderDetails)
-//router.get("/getorderdetails" , orderDetailsController.getorderDetails)
+// login user and generate jwt
+router.post("/login", userController.loginUser)
+
+//The show login user           Validate : token + userId
+router.get("/user/:userId", Validation.tokenValidation , Validation.userValidation , userController.getUserData)
+
+
+// update user          Validate : token + userId
+router.put("/users/:userId", Validation.tokenValidation , Validation.userValidation , userController.updateUser)
+
+// show update user
+router.get("/Users/:UsersId",userController.showUpdateUser)
 
 
 
+// delete user          Validate : token + userId
+router.delete("/users/:userId", Validation.tokenValidation , Validation.userValidation , userController.deleteUser)
+
+// show  delete user
+router.get("/users/:usersId",userController.showDeleteUser)
+
+// 
 module.exports = router;
